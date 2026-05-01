@@ -21,7 +21,7 @@ CREATE TABLE alunos (
 CREATE TABLE modalidades (
     id BIGSERIAL PRIMARY KEY,
     nome VARCHAR(100) NOT NULL UNIQUE,
-    ativa BOOLEAN NOT NULL DEFAULT TRUE,
+    ativa BOOLEAN NOT NULL DEFAULT TRUE
 );
 
 CREATE TABLE graduacoes (
@@ -29,7 +29,7 @@ CREATE TABLE graduacoes (
     modalidade_id BIGINT NOT NULL REFERENCES modalidades(id),
     nome VARCHAR(100) NOT NULL,
     UNIQUE (modalidade_id, nome)
-)
+);
 
 CREATE TABLE planos (
     id BIGSERIAL PRIMARY KEY,
@@ -38,7 +38,7 @@ CREATE TABLE planos (
     valor_mensal NUMERIC(10, 2) NOT NULL CHECK ( valor_mensal >= 0),
     ativo BOOLEAN NOT NULL DEFAULT TRUE,
     UNIQUE (modalidade_id, nome)
-)
+);
 
 CREATE TABLE matriculas (
     id BIGSERIAL PRIMARY KEY,
@@ -59,7 +59,7 @@ CREATE TABLE matriculas_modalidades (
     data_inicio DATE NOT NULL DEFAULT CURRENT_DATE,
     data_fim DATE,
     UNIQUE (matricula_id, modalidade_id)
-)
+);
 
 CREATE TABLE faturas_matriuclas(
     id BIGSERIAL PRIMARY KEY,
@@ -71,7 +71,7 @@ CREATE TABLE faturas_matriuclas(
     status VARCHAR(20) NOT NULL DEFAULT 'ABERTA',
     CHECK ( status IN ('ABERTA', 'PAGA', 'CANCELADA', 'VENCIDA')),
     UNIQUE (matricula_id, data_vencimento)
-)
+);
 
 CREATE TABLE assiduidade (
     id BIGSERIAL PRIMARY KEY,
