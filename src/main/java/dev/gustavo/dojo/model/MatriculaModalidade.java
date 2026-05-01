@@ -30,7 +30,7 @@ public class MatriculaModalidade {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "graduacao_id")
-    private Graduacao graduacao;
+    private Graduacao graduacaoId;
 
     @PrePersist
     public void PrePersist(){
@@ -87,11 +87,11 @@ public class MatriculaModalidade {
         this.plano = plano;
     }
 
-    public Graduacao getGraduacao() {
-        return graduacao;
+    public Graduacao getGraduacaoId() {
+        return graduacaoId;
     }
 
-    public void setGraduacao(Graduacao graduacao) {
-        this.graduacao = graduacao;
+    public void setGraduacaoId(Graduacao graduacaoId) {
+        this.graduacaoId = graduacaoId;
     }
 }
