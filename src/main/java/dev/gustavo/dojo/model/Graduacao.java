@@ -3,7 +3,7 @@ package dev.gustavo.dojo.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "graduacao")
+@Table(name = "graduacoes")
 public class Graduacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
