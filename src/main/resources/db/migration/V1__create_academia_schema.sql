@@ -61,7 +61,7 @@ CREATE TABLE matriculas_modalidades (
     UNIQUE (matricula_id, modalidade_id)
 );
 
-CREATE TABLE faturas_matriuclas(
+CREATE TABLE faturas_matriculas(
     id BIGSERIAL PRIMARY KEY,
     matricula_id BIGINT NOT NULL REFERENCES matriculas(id),
     valor NUMERIC(10, 2) NOT NULL CHECK ( valor >= 0),
