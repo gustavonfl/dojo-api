@@ -1,7 +1,6 @@
 package dev.gustavo.dojo.model;
 
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -23,7 +22,7 @@ public class Aluno {
     private String celular;
     private String email;
     private String observacao;
-    private String enderco;
+    private String endereco;
     private String numero;
     private String complemento;
     private String bairro;
@@ -114,12 +113,12 @@ public class Aluno {
         this.observacao = observacao;
     }
 
-    public String getEnderco() {
-        return enderco;
+    public String getEndereco() {
+        return endereco;
     }
 
     public void setEnderco(String enderco) {
-        this.enderco = enderco;
+        this.endereco = enderco;
     }
 
     public String getNumero() {
