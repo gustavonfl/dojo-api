@@ -2,11 +2,13 @@ package dev.gustavo.dojo.model;
 
 import dev.gustavo.dojo.model.enums.StatusFatura;
 import jakarta.persistence.*;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+
+@Entity
+@Table(name = "fatura_matricula")
 public class FaturaMatricula {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
