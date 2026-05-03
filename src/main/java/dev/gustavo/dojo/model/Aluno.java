@@ -117,8 +117,8 @@ public class Aluno {
         return endereco;
     }
 
-    public void setEnderco(String enderco) {
-        this.endereco = enderco;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
     public String getNumero() {
