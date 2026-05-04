@@ -1,5 +1,6 @@
 package dev.gustavo.dojo.controller;
 
+import dev.gustavo.dojo.dto.AlunoFiltroRequest;
 import dev.gustavo.dojo.dto.AlunoRequest;
 import dev.gustavo.dojo.dto.AlunoResponse;
 import dev.gustavo.dojo.service.AlunoService;
@@ -25,8 +26,8 @@ public class AlunoController {
     }
 
     @GetMapping
-    public Page<AlunoResponse> listar(Pageable pageable){
-        return alunoService.listar(pageable);
+    public Page<AlunoResponse> listar(AlunoFiltroRequest filtro, Pageable pageable){
+        return alunoService.listar(filtro, pageable);
     }
 
     @GetMapping("/{id}")
