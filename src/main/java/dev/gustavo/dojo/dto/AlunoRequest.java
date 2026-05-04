@@ -9,7 +9,7 @@ import jakarta.validation.constraints.Size;
 import java.time.LocalDate;
 
 public record AlunoRequest(
-        @NotBlank(message = "O nome é oprbigatorio")
+        @NotBlank(message = "O nome é obrigatorio")
         @Size(max = 150)
         String nome,
 
