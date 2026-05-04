@@ -2,6 +2,7 @@ package dev.gustavo.dojo.service;
 
 import dev.gustavo.dojo.dto.AlunoRequest;
 import dev.gustavo.dojo.dto.AlunoResponse;
+import dev.gustavo.dojo.exceptions.RegraNegocioException;
 import dev.gustavo.dojo.model.Aluno;
 import dev.gustavo.dojo.repository.AlunoRepository;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,7 @@ public class AlunoService {
 
      public AlunoResponse cadastrar(AlunoRequest request){
          if (request.email() != null && alunoRepository.existsByEmail(request.email())){
-            throw new RuntimeException("Email já cadastrado");
+            throw new RegraNegocioException("Email já cadastrado");
          }
 
          Aluno aluno = request.toEntity();
@@ -48,6 +49,6 @@ public class AlunoService {
      }
 
      private Aluno buscarEntidadePorid(Long id){
-         return alunoRepository.findById(id).orElseThrow(() -> new RuntimeException("Aluno não encontrado"));
+         return alunoRepository.findById(id).orElseThrow(() -> new RegraNegocioException("Aluno não encontrado"));
      }
 }
