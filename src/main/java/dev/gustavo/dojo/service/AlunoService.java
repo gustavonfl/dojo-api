@@ -1,10 +1,12 @@
 package dev.gustavo.dojo.service;
 
+import dev.gustavo.dojo.dto.AlunoFiltroRequest;
 import dev.gustavo.dojo.dto.AlunoRequest;
 import dev.gustavo.dojo.dto.AlunoResponse;
 import dev.gustavo.dojo.exceptions.RegraNegocioException;
 import dev.gustavo.dojo.model.Aluno;
 import dev.gustavo.dojo.repository.AlunoRepository;
+import dev.gustavo.dojo.specification.AlunoSpecification;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -27,8 +29,8 @@ public class AlunoService {
          return AlunoResponse.fromEntity(alunoSalvo);
      }
 
-     public Page<AlunoResponse> listar(Pageable pageable){
-            return alunoRepository.findAll(pageable).map(AlunoResponse::fromEntity);
+     public Page<AlunoResponse> listar(AlunoFiltroRequest filtro, Pageable pageable){
+            return alunoRepository.findAll(AlunoSpecification.comFiltros(filtro), pageable).map(AlunoResponse::fromEntity);
      }
 
      public AlunoResponse buscarPorId(Long id){
